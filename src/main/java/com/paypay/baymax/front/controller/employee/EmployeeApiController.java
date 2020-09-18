@@ -46,8 +46,8 @@ public class EmployeeApiController implements EmployeeApi {
 	@Override
 	public ResponseEntity<Void> disable(
 			@ApiParam(value = "Employee ID",required=true) @PathVariable("id") Long id) {
-		String accept = request.getHeader("Accept");
-        return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
+        restTemplate.delete(uri + COREENDPOINT + "/" + id);
+        return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
 	@Override
